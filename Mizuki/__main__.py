@@ -76,7 +76,7 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
-PM_START_TEXT = "Hi {}, my name is {} 👸\n\nI'm a next gen powerful group manager bot. Made by [Janindu 🇱🇰](t.me/imjanindu)\n\nHit /help to find my list of available commands"
+PM_START_TEXT = "Hi {}, my name is {} 👸\n\nI'm a next gen powerful group manager bot. Made by [MrC《》VENOM](t.me/MrC_VENOM)\n\nHit /help to find my list of available commands"
 
 HELP_STRINGS = """
 Hey there! My name is *{}*.
@@ -95,9 +95,9 @@ I'm a group management bot, here to help you get around and keep the order in yo
     "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !\n",
 )
 
-SAITAMA_IMG = "https://telegra.ph/file/2cdd052cf883e8ace4ffa.jpg"
+SAITAMA_IMG = "https://telegra.ph/file/9cba78751e811f9a57251.jpg"
 
-DONATE_STRING = """Heya, glad to hear you want to donate for developer. This bot runs on heroku so bot slow down some times and developer cannot add more modules due to heroku can't run them.\n\nBetter if my developer recieved a VPS to run the bot. Contact him and help him to continue this.\n\nDeveloper: [@ImJanindu](t.me/imjanindu)"""
+DONATE_STRING = """Heya, glad to hear you want to donate for developer. This bot runs on heroku so bot slow down some times and developer cannot add more modules due to heroku can't run them.\n\nBetter if my developer recieved a VPS to run the bot. Contact him and help him to continue this.\n\nDeveloper: [@MrC_VENOM](t.me/MrC_VENOM)"""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -227,12 +227,12 @@ def start(update: Update, context: CallbackContext):
                             ),
                             InlineKeyboardButton(
                                 text="📌 Updates Channel",
-                                url="https://t.me/Infinity_BOTs",
+                                url="https://t.me/TV_SERIES_ON",
                             ),
                         ],
                         [
                             InlineKeyboardButton(
-                                text="🇱🇰 Developer", url="https://github.com/imjanindu"
+                                text="🇱🇰 Developer", url="https://t.me/MrC_VENOM"
                             ),
                         ],
                     ]
