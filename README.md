@@ -1,14 +1,14 @@
-![Mizuki](https://telegra.ph/file/c29b03079941d69c19504.jpg)
-# Mizuki Bot
+![Mary Moody](https://telegra.ph/file/9cba78751e811f9a57251.jpg)
+# Mary Moody Bot
 
 A Telegram Python bot running on python3 forked with saitama with a sqlalchemy database and an entirely themed persona to make fun and good management for you in your groups.
 
-Can be found on telegram as [Mizuki](https://t.me/TheMizukiBot)
+Can be found on telegram as [Mary Moody](https://t.me/Mary_.moodybot)
 
-The Support group can be reached out to at [Infinity JE](https://t.me/InfinityJEOT), where you can ask for help , discover new features, report bugs, and stay in the loop whenever a new update is available. 
+The Support group can be reached out to at [MrC《》VENOM](https://t.me/MrC_VENOM), where you can ask for help , discover new features, report bugs, and stay in the loop whenever a new update is available. 
 
 
-Updates channel as at [Infinity BOTs](https://t.me/Infinity_BOTs)
+Support Group as at [All In One](https://t.me/tvseriezzz)
 
 ## How to setup or deploy
 
@@ -20,7 +20,7 @@ Updates channel as at [Infinity BOTs](https://t.me/Infinity_BOTs)
 ## How to setup on Heroku 
 For starters click on this button 
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/ImJanindu/Mizuki/tree/Mizuki) 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/nandhunair1/Mizuki) 
 
 ## Credits
 The bot is based on the original work done by [PaulSonOfLars](https://github.com/PaulSonOfLars)
