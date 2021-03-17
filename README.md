@@ -3,7 +3,7 @@
 
 A Telegram Python bot running on python3 forked with saitama with a sqlalchemy database and an entirely themed persona to make fun and good management for you in your groups.
 
-Can be found on telegram as [Mary Moody](https://t.me/Mary_.moodybot)
+Can be found on telegram as [💓മേരി ചേച്ചി💓](https://t.me/Mary_.moodybot)
 
 The Support group can be reached out to at [MrC《》VENOM](https://t.me/MrC_VENOM), where you can ask for help , discover new features, report bugs, and stay in the loop whenever a new update is available. 
 
