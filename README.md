@@ -1,5 +1,5 @@
 ![Mary Moody](https://telegra.ph/file/9cba78751e811f9a57251.jpg)
-# Mary Moody Bot
+# 💓മേരി ചേച്ചി💓
 
 A Telegram Python bot running on python3 forked with saitama with a sqlalchemy database and an entirely themed persona to make fun and good management for you in your groups.
 
