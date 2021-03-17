@@ -7,7 +7,6 @@ Powerful Abilities*
 
 • Youtube Downloader 🎵
 
-Developer @MrC_VENOM 🇮🇳
-"""
+Developer @MrC_VENOM 🇮🇳"""
 
 __mod_name__ = "About 🇮🇳"
