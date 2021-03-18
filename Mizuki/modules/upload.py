@@ -83,7 +83,7 @@ async def tsh(event):
 
             str(time.time() - start)
             await orta.edit(
-                f"File Successfully Uploaded to TransferSh.\n\nLink 👉 {download_link}\nExpired Date 👉 {final_date}\n\nUploaded by @Mary_moodybot 👸"
+                f"File Successfully Uploaded to TransferSh.\n\nLink 👉 {download_link}\nExpired Date 👉 {final_date}\n\nUploaded by @TheMizukiBot 👸"
             )
         except Exception as e:
             traceback.print_exc()
@@ -118,7 +118,7 @@ async def tmp(event):
 
             str(time.time() - start)
             await orta.edit(
-                f"File Successfully Uploaded to TmpNinja.\n\nLink 👉 {download_link}\n\nUploaded by @Mary_moodybot 👸"
+                f"File Successfully Uploaded to TmpNinja.\n\nLink 👉 {download_link}\n\nUploaded by @TheMizukiBot 👸"
             )
         except Exception as e:
             traceback.print_exc()
@@ -159,7 +159,7 @@ async def up(event):
                 event.chat.id,
                 dosya,
                 force_document=True,
-                caption=f"Uploaded By @Mary_moodybot",
+                caption=f"Uploaded By @TheMizukiBot",
             )
         except Exception as e:
             traceback.print_exc()
@@ -184,7 +184,7 @@ __help__ = """
  ⦁ `/transfersh`*:* reply to a telegram file to upload it on transfersh and get direct download link
  ⦁ `/tmpninja`*:* reply to a telegram file to upload it on tmpninja and get direct download link
 
-© @Mary_moodybot 👸
+© @TheMizukiBot 👸
 """
 
 __mod_name__ = "File To Link 🔗"
