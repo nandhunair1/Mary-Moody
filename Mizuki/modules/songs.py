@@ -272,7 +272,6 @@ __help__ = """
  • `/song <song name>`*:* uploads the song in it's best quality available
  • `/video <video name>`*:* uploads the video in it's best quality available
  • `/lyrics <song name>`*:* provides the lyrics of the song you want
-
-© @Mary_moodybot 👸"""
+"""
 
 __mod_name__ = "Songs 🎵"
