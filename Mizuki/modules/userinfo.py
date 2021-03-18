@@ -545,7 +545,10 @@ Examples:
  `/setbio This user is a wolf` (reply to the user)
 
 *Overall Information about you:*
- • `/info`*:* get information about a user.
+ • `/info`*:* get information about a user. 
+ 
+*What is that health thingy?*
+ Come and see [HP System explained](https://t.me/Infinity_BOTs/415)
 """
 
 SET_BIO_HANDLER = DisableAbleCommandHandler("setbio", set_about_bio)
