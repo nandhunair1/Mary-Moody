@@ -1,12 +1,16 @@
 __help__ = """
-*Mary Moody - A Powerful Telegram Group Manager 🎈
+*Mizuki - A Powerful Telegram Group Manager 🎶
 
 Powerful Abilities*
+
+• Group Voice Chat Music Play ❤
 
 • File To Link and URL Upload 📂
 
 • Youtube Downloader 🎵
 
-Developer @MrC_VENOM 🇮🇳"""
+Developer @ImJanindu 🇱🇰
 
-__mod_name__ = "About 🇮🇳"
+Github [ImJanindu](https://github.com/ImJanindu)"""
+
+__mod_name__ = "About 🇱🇰"
