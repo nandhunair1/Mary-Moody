@@ -9,8 +9,6 @@ Powerful Abilities*
 
 • Youtube Downloader 🎵
 
-Bot @MrCVENOMbot 🇮🇳
-
 Support Group [MrC_VENOM](https://t.me/MrCVENOM_chat)"""
 
 __mod_name__ = "About 🇮🇳"
