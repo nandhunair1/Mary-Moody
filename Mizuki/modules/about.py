@@ -1,5 +1,5 @@
 __help__ = """
-*꧁࿗༒𝐌𝐫𝐂《》𝐕𝐄𝐍𝐎𝐌༒࿗꧂ 🤖 - A Powerful Telegram Group Manager 🎶
+* A Powerful Telegram Group Manager 🎶
 
 Powerful Abilities*
 
@@ -9,7 +9,7 @@ Powerful Abilities*
 
 • Youtube Downloader 🎵
 
-Developer @MrC_VENOM 🇮🇳
+Bot @MrCVENOMbot 🇮🇳
 
 Support Group [MrC_VENOM](https://t.me/MrCVENOM_chat)"""
 
