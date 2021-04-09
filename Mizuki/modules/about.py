@@ -1,16 +1,16 @@
 __help__ = """
-*A Powerful Telegram Group Manager 🎶
+*MrCVENOMbot - A Powerful Telegram Group Manager 🎶
 
 Powerful Abilities*
 
-• Group Music download ❤
+• Group Music Download ❤
 
 • File To Link and URL Upload 📂
 
 • Youtube Downloader 🎵
 
-Channel @MrCVENOM 🇮🇳
+Developer @MrCVENOM 🇮🇳
 
-Support [MrC《》VENOM 🇮🇳](https://t.me/MrC_VENOM)"""
+Support [MrC《》VENOM](https://t.me/MrC_VENOM)"""
 
 __mod_name__ = "About 🇮🇳"
