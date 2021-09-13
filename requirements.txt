@@ -37,5 +37,5 @@ bs4
 tswift
 youtube_search
 youtube-search-python==1.4.0
-Pyrogram
-TgCrypto
+pyrogram
+tgcrypto
