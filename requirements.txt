@@ -38,5 +38,4 @@ tswift
 youtube_search
 youtube-search-python==1.4.0
 Pyrogram
-Dnspython
 TgCrypto
