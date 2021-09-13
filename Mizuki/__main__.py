@@ -234,10 +234,6 @@ def start(update: Update, context: CallbackContext):
                             InlineKeyboardButton(
                                 text="🇮🇳 Developer", url="https://t.me/MrC_VENOM"
                             ),
-                            InlineKeyboardButton(
-                                text="Help 😌",
-                                callback_data="help_back",
-                            ),
                         ],
                     ]
                 ),
