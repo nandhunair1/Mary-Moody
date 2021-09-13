@@ -95,7 +95,7 @@ I'm a group management bot, here to help you get around and keep the order in yo
     "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !\n",
 )
 
-SAITAMA_IMG = "https://telegra.ph/file/8ba8c0c3014f602bb7fbc.jpg"
+SAITAMA_IMG = "https://telegra.ph/file/2b930e832af98aaec9a98.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate for developer. This bot runs on heroku so bot slow down some times and developer cannot add more modules due to heroku can't run them.\n\nBetter if my developer recieved a VPS to run the bot. Contact him and help him to continue this.\n\nDeveloper: [@MrC_VENOM](t.me/MrC_VENOM)"""
 
@@ -227,12 +227,16 @@ def start(update: Update, context: CallbackContext):
                             ),
                             InlineKeyboardButton(
                                 text="📌 Updates Channel",
-                                url="https://t.me/MrCVENOM",
+                                url="https://t.me/tvseriezzz_update",
                             ),
                         ],
                         [
                             InlineKeyboardButton(
                                 text="🇮🇳 Developer", url="https://t.me/MrC_VENOM"
+                            ),
+                            InlineKeyboardButton(
+                                text="Help 😌",
+                                callback_data="help_back",
                             ),
                         ],
                     ]
