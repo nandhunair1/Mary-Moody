@@ -1,3 +1,21 @@
+# Copyright (C) 2018 - 2020 MrYacha. All rights reserved. Source code available under the AGPL.
+# Copyright (C) 2021 TeamDaisyX
+# Copyright (C) 2020 Inuka Asith
+
+# This file is part of Daisy (Telegram Bot)
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 from typing import Optional
 
 from telegram import (
@@ -18,120 +36,109 @@ from Mizuki.modules.helper_funcs.chat_status import user_admin
 from Mizuki.modules.helper_funcs.string_handling import markdown_parser
 
 
-@run_async
-def get_rules(update: Update, context: CallbackContext):
-    chat_id = update.effective_chat.id
-    send_rules(update, chat_id)
+@register(cmds=["setrules", "saverules"], user_admin=True)
+@chat_connection(admin=True, only_groups=True)
+@get_strings_dec("rules")
+async def set_rules(message, chat, strings):
+    chat_id = chat["chat_id"]
 
+    # FIXME: documents are allow to saved (why?), check for args if no 'reply_to_message'
+    note = await get_parsed_note_list(message, allow_reply_message=True, split_args=-1)
+    note["chat_id"] = chat_id
 
-# Do not async - not from a handler
-def send_rules(update, chat_id, from_pm=False):
-    bot = dispatcher.bot
-    user = update.effective_user  # type: Optional[User]
-    try:
-        chat = bot.get_chat(chat_id)
-    except BadRequest as excp:
-        if excp.message == "Chat not found" and from_pm:
-            bot.send_message(
-                user.id,
-                "The rules shortcut for this chat hasn't been set properly! Ask admins to "
-                "fix this.",
-            )
-            return
-        else:
-            raise
-
-    rules = sql.get_rules(chat_id)
-    text = f"The rules for *{escape_markdown(chat.title)}* are:\n\n{rules}"
-
-    if from_pm and rules:
-        bot.send_message(
-            user.id, text, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True
-        )
-    elif from_pm:
-        bot.send_message(
-            user.id,
-            "The group admins haven't set any rules for this chat yet. "
-            "This probably doesn't mean it's lawless though...!",
-        )
-    elif rules:
-        update.effective_message.reply_text(
-            "Contact me in PM to get this group's rules.",
-            reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton(
-                            text="Rules", url=f"t.me/{bot.username}?start={chat_id}"
-                        )
-                    ]
-                ]
-            ),
-        )
+    if (
+        await db.rules.replace_one({"chat_id": chat_id}, note, upsert=True)
+    ).modified_count > 0:
+        text = strings["updated"]
     else:
-        update.effective_message.reply_text(
-            "The group admins haven't set any rules for this chat yet. "
-            "This probably doesn't mean it's lawless though...!"
-        )
+        text = strings["saved"]
+
+    await message.reply(text % chat["chat_title"])
 
 
-@run_async
-@user_admin
-def set_rules(update: Update, context: CallbackContext):
-    chat_id = update.effective_chat.id
-    msg = update.effective_message  # type: Optional[Message]
-    raw_text = msg.text
-    args = raw_text.split(None, 1)  # use python's maxsplit to separate cmd and args
-    if len(args) == 2:
-        txt = args[1]
-        offset = len(txt) - len(raw_text)  # set correct offset relative to command
-        markdown_rules = markdown_parser(
-            txt, entities=msg.parse_entities(), offset=offset
-        )
+@register(cmds="rules")
+@disableable_dec("rules")
+@chat_connection(only_groups=True)
+@get_strings_dec("rules")
+async def rules(message, chat, strings):
+    chat_id = chat["chat_id"]
+    send_id = message.chat.id
 
-        sql.set_rules(chat_id, markdown_rules)
-        update.effective_message.reply_text("Successfully set rules for this group.")
+    if "reply_to_message" in message:
+        rpl_id = message.reply_to_message.message_id
+    else:
+        rpl_id = message.message_id
 
+    if len(args := message.get_args().split()) > 0:
+        arg1 = args[0].lower()
+    else:
+        arg1 = None
+    noformat = arg1 in ("noformat", "raw")
 
-@run_async
-@user_admin
-def clear_rules(update: Update, context: CallbackContext):
-    chat_id = update.effective_chat.id
-    sql.set_rules(chat_id, "")
-    update.effective_message.reply_text("Successfully cleared rules!")
+    if not (db_item := await db.rules.find_one({"chat_id": chat_id})):
+        await message.reply(strings["not_found"])
+        return
 
+    text, kwargs = await t_unparse_note_item(
+        message, db_item, chat_id, noformat=noformat
+    )
+    kwargs["reply_to"] = rpl_id
 
-def __stats__():
-    return f"{sql.num_chats()} chats have rules set."
-
-
-def __import_data__(chat_id, data):
-    # set chat rules
-    rules = data.get("info", {}).get("rules", "")
-    sql.set_rules(chat_id, rules)
+    await send_note(send_id, text, **kwargs)
 
 
-def __migrate__(old_chat_id, new_chat_id):
-    sql.migrate_chat(old_chat_id, new_chat_id)
+@register(cmds="resetrules", user_admin=True)
+@chat_connection(admin=True, only_groups=True)
+@get_strings_dec("rules")
+async def reset_rules(message, chat, strings):
+    chat_id = chat["chat_id"]
+
+    if (await db.rules.delete_one({"chat_id": chat_id})).deleted_count < 1:
+        await message.reply(strings["not_found"])
+        return
+
+    await message.reply(strings["deleted"])
 
 
-def __chat_settings__(chat_id, user_id):
-    return f"This chat has had it's rules set: `{bool(sql.get_rules(chat_id))}`"
+BUTTONS.update({"rules": "btn_rules"})
 
 
-__help__ = """
- • `/rules`*:* get the rules for this chat.
+@register(CommandStart(re.compile("btn_rules")))
+@get_strings_dec("rules")
+async def rules_btn(message, strings):
+    chat_id = (message.get_args().split("_"))[2]
+    user_id = message.chat.id
+    if not (db_item := await db.rules.find_one({"chat_id": int(chat_id)})):
+        await message.answer(strings["not_found"])
+        return
 
-*Admins only:*
- • `/setrules <your rules here>`*:* set the rules for this chat.
- • `/clearrules`*:* clear the rules for this chat.
-"""
+    text, kwargs = await t_unparse_note_item(message, db_item, chat_id)
+    await send_note(user_id, text, **kwargs)
+
+
+async def __export__(chat_id):
+    rules = await db.rules.find_one({"chat_id": chat_id})
+    if rules:
+        del rules["_id"]
+        del rules["chat_id"]
+
+        return {"rules": rules}
+
+
+async def __import__(chat_id, data):
+    rules = data
+    for column in [i for i in data if i not in ALLOWED_COLUMNS]:
+        del rules[column]
+
+    rules["chat_id"] = chat_id
+    await db.rules.replace_one({"chat_id": rules["chat_id"]}, rules, upsert=True)
+
 
 __mod_name__ = "Rules 📛"
 
-GET_RULES_HANDLER = CommandHandler("rules", get_rules, filters=Filters.group)
-SET_RULES_HANDLER = CommandHandler("setrules", set_rules, filters=Filters.group)
-RESET_RULES_HANDLER = CommandHandler("clearrules", clear_rules, filters=Filters.group)
-
-dispatcher.add_handler(GET_RULES_HANDLER)
-dispatcher.add_handler(SET_RULES_HANDLER)
-dispatcher.add_handler(RESET_RULES_HANDLER)
+__help__ = """
+<b>Available Commands:</b>
+- /setrules (rules): saves the rules (also works with reply)
+- /rules: Shows the rules of chat if any!
+- /resetrules: Resets group's rules
+"""
