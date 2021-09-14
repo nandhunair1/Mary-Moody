@@ -11,6 +11,6 @@ Powerful Abilities*
 
 Developer MrCVENOM 🇮🇳
 
-Github [MrCVENOM](https://t.me/MrC_VENOM)"""
+Update Channel [Updates](https://t.me/tvseriezzz_update)"""
 
 __mod_name__ = "About 🇮🇳"
