@@ -76,7 +76,7 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
-PM_START_TEXT = "Hi {}, my name is {} 😎\n\nI'm a next gen powerful group manager bot. Made by [MrC《》VENOM](t.me/MrC_VENOM)\n\nHit /help to find my list of available commands"
+PM_START_TEXT = "<b>Hi {}, my name is {} 😎\n\nI'm a next gen powerful group manager bot. Made by [MrC《》VENOM](t.me/MrC_VENOM)\n\nHit /help to find my list of available commands</b>"
 
 HELP_STRINGS = """
 Hey there! My name is *{}*.
@@ -214,8 +214,8 @@ def start(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                text="➕ Add ꧁࿗༒𝐌𝐫𝐂《》𝐕𝐄𝐍𝐎𝐌༒࿗꧂ 🤖",
-                                url="t.me/{}?startgroup=true".format(
+                                text="➕ Add Movie Search Bot 🤖",
+                                url="t.me/tvseriezzz_bot?startgroup=true".format(
                                     context.bot.username
                                 ),
                             )
