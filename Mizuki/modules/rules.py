@@ -6,7 +6,6 @@ from telegram import (
     Message,
     ParseMode,
     Update,
-    Bot,
     User,
 )
 from telegram.error import BadRequest
@@ -20,7 +19,7 @@ from Mizuki.modules.helper_funcs.string_handling import markdown_parser
 
 
 @run_async
-def get_rules(bot: Bot, update: Update):
+def get_rules(update: Update, context: CallbackContext):
     chat_id = update.effective_chat.id
     send_rules(update, chat_id)
 
@@ -43,7 +42,7 @@ def send_rules(update, chat_id, from_pm=False):
             raise
 
     rules = sql.get_rules(chat_id)
-    text = "The rules for *{}* are:\n\n{}".format(escape_markdown(chat.title), rules)"
+    text = f"The rules for *{escape_markdown(chat.title)}* are:\n\n{rules}"
 
     if from_pm and rules:
         bot.send_message(
@@ -77,7 +76,7 @@ def send_rules(update, chat_id, from_pm=False):
 
 @run_async
 @user_admin
-def set_rules(bot: Bot, update: Update):
+def set_rules(update: Update, context: CallbackContext):
     chat_id = update.effective_chat.id
     msg = update.effective_message  # type: Optional[Message]
     raw_text = msg.text
@@ -95,14 +94,14 @@ def set_rules(bot: Bot, update: Update):
 
 @run_async
 @user_admin
-def clear_rules(bot: Bot, update: Update):
+def clear_rules(update: Update, context: CallbackContext):
     chat_id = update.effective_chat.id
     sql.set_rules(chat_id, "")
     update.effective_message.reply_text("Successfully cleared rules!")
 
 
 def __stats__():
-    return "{} chats have rules set.".format(sql.num_chats())
+    return f"{sql.num_chats()} chats have rules set."
 
 
 def __import_data__(chat_id, data):
@@ -116,7 +115,7 @@ def __migrate__(old_chat_id, new_chat_id):
 
 
 def __chat_settings__(chat_id, user_id):
-    return "This chat has had it's rules set: `{}`".format(bool(sql.get_rules(chat_id)))
+    return f"This chat has had it's rules set: `{bool(sql.get_rules(chat_id))}`"
 
 
 __help__ = """
