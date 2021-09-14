@@ -30,29 +30,32 @@ except:
 
 
 @register(pattern="^/song (.*)")
-async def download_video(v_url):
-
-    lazy = v_url
-    sender = await lazy.get_sender()
-    me = await lazy.client.get_me()
-
-    if not sender.id == me.id:
-        rkp = await lazy.reply("Processing 😌")
-    else:
-        rkp = await lazy.edit("Processing 😌")
+async def download_song(v_url):
+    approved_userss = approved_users.find({})
+    for ch in approved_userss:
+        iid = ch["id"]
+        userss = ch["user"]
+    if v_url.is_group:
+        if await is_register_admin(v_url.input_chat, v_url.message.sender_id):
+            pass
+        elif v_url.chat_id == iid and v_url.sender_id == userss:
+            pass
+        else:
+            return
     url = v_url.pattern_match.group(1)
+    rkp = await v_url.reply("Processing...")
     if not url:
-        return await rkp.edit("`Error \nusage song <song name>`")
+        await rkp.edit("**What's the song you want?**\nUsage`/song <song name>`")
     search = SearchVideos(url, offset=1, mode="json", max_results=1)
     test = search.result()
     p = json.loads(test)
     q = p.get("search_result")
     try:
         url = q[0]["link"]
-    except:
-        return await rkp.edit("Failed to find 😒")
+    except BaseException:
+        return await rkp.edit("`Failed to find that song`")
     type = "audio"
-    await rkp.edit("Preparing to download 🥺")
+    await rkp.edit("Preparing to download...")
     if type == "audio":
         opts = {
             "format": "bestaudio",
@@ -73,10 +76,9 @@ async def download_video(v_url):
             "quiet": True,
             "logtostderr": False,
         }
-        video = False
         song = True
     try:
-        await rkp.edit("Fetching data, please wait 😉")
+        await rkp.edit("Downloading...")
         with YoutubeDL(opts) as rip:
             rip_data = rip.extract_info(url)
     except DownloadError as DE:
@@ -108,17 +110,16 @@ async def download_video(v_url):
     except Exception as e:
         await rkp.edit(f"{str(type(e)): {str(e)}}")
         return
-    c_time = time.time()
+    time.time()
     if song:
-        await rkp.edit(
-            f"`Preparing to upload song:`\
-        \n**{rip_data['title']}**\
-        \nby **{rip_data['uploader']}**"
-        )
-        await v_url.client.send_file(
+        await rkp.edit("Uploading...")
+
+        lel = await v_url.client.send_file(
             v_url.chat_id,
             f"{rip_data['id']}.mp3",
-            supports_streaming=True,
+            supports_streaming=False,
+            force_document=False,
+            allow_cache=False,
             attributes=[
                 DocumentAttributeAudio(
                     duration=int(rip_data["duration"]),
@@ -126,11 +127,10 @@ async def download_video(v_url):
                     performer=str(rip_data["uploader"]),
                 )
             ],
-            progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                progress(d, t, v_url, c_time, "Uploading 📤", f"{rip_data['title']}.mp3")
-            ),
         )
-        os.remove(f"{rip_data['id']}.mp3")
+        await rkp.delete()
+        os.system("rm -rf *.mp3")
+        os.system("rm -rf *.webp")
     elif video:
         await rkp.edit(
             f"`Preparing to upload song:`\
