@@ -236,10 +236,8 @@ def start(update: Update, context: CallbackContext):
                             ),
                             InlineKeyboardButton(
                                 text="𝙷𝙴𝙻𝙿",
-                                callback_data="help".format(
-                                    context.bot.username
-                                ),
-                            )
+                                callback_data="help_back"
+                            ),
                         ],
                     ]
                 ),
