@@ -19,6 +19,13 @@ def covid(update: Update, context: CallbackContext):
         reply_text = f"**Cases for {r['country']} 🦠**\nCases: {r['cases']:,}\nCases Today: {r['todayCases']:,}\nDeaths: {r['deaths']:,}\nDeaths Today: {r['todayDeaths']:,}\nRecovered: {r['recovered']:,}\nActive: {r['active']:,}\nCritical: {r['critical']:,}\nCases/Mil: {r['casesPerOneMillion']}\nDeaths/Mil: {r['deathsPerOneMillion']}"
     message.reply_text(reply_text, parse_mode=ParseMode.MARKDOWN)
 
+__help__ = """
+ - /covid <country> <state> <locality>: Get real time COVID-19 stats for the input location.
+ - /corona top <n(integer)>: Get the top n countries with the highest confirmed cases.
+"""
+
+__mod_name__ = "🦠 Covid"
+
 
 COVID_HANDLER = DisableAbleCommandHandler(["covid", "corona"], covid)
 dispatcher.add_handler(COVID_HANDLER)
