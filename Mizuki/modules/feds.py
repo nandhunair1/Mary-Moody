@@ -2394,11 +2394,12 @@ You can even designate federation admins, so your trusted admin can ban all the 
 
 *Commands:*\n
 Feds are now divided into 3 sections for your ease. 
-• `/fedownerhelp`*:* Provides help for fed creation and owner only commands
-• `/fedadminhelp`*:* Provides help for fed administration commands
-• `/feduserhelp`*:* Provides help for commands anyone can use
+• /fedownerhelp : Provides help for fed creation and owner only commands
+• /fedadminhelp : Provides help for fed administration commands
+• /feduserhelp : Provides help for commands anyone can use
 
-"""
+
+© @MrCVENOMbot 😎"""
 
 NEW_FED_HANDLER = CommandHandler("newfed", new_fed)
 DEL_FED_HANDLER = CommandHandler("delfed", del_fed)
