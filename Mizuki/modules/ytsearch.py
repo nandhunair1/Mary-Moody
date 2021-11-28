@@ -54,6 +54,8 @@ def inline(client: Client, query: InlineQuery):
 AFK_HANDLER = DisableAbleCommandHandler("yt", yt)
 
 __help__ = """
-• /yt : search inline for youtube video"""
+• /yt : search inline for youtube video
+
+© @MrCVENOMbot"""
 
 __mod_name__ = "YT Search 🧐"
