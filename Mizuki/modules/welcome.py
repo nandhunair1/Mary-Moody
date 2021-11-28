@@ -1066,7 +1066,8 @@ user joined chat, user left chat.
 
 *Welcome markdown:* 
  • `/welcomehelp`*:* view more formatting information for custom welcome/goodbye messages.
-"""
+
+© @MrCVENOMbot"""
 
 NEW_MEM_HANDLER = MessageHandler(Filters.status_update.new_chat_members, new_member)
 LEFT_MEM_HANDLER = MessageHandler(Filters.status_update.left_chat_member, left_member)
