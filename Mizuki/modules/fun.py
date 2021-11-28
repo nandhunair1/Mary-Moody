@@ -298,22 +298,22 @@ def weebify(update: Update, context: CallbackContext):
 
 
 __help__ = """
- • `/runs`*:* reply a random string from an array of replies
- • `/slap`*:* slap a user, or get slapped if not a reply
- • `/shrug`*:* get shrug XD
- • `/table`*:* get flip/unflip :v
- • `/decide`*:* Randomly answers yes/no/maybe
- • `/toss`*:* Tosses A coin
- • `/bluetext`*:* check urself :V
- • `/roll`*:* Roll a dice
- • `/rlg`*:* Join ears, nose, mouth and create an emoji
- • `/shout <keyword>`*:* write anything you want to give loud shout
- • `/send <text>`*:* sends the text you given to the group by Mizuki
- • `/weebify <text>`*:* returns a weebified text
- • `/sanitize`*:* always use this before `/pat` or any contact
- • `/pat`*:* pats a user, or get patted
- • `/truth`*:* for random truth
- • `/dare`*:* for random dare
+ • /runs : reply a random string from an array of replies
+ • /slap : slap a user, or get slapped if not a reply
+ • /shrug : get shrug XD
+ • /table : get flip/unflip :v
+ • /decide : Randomly answers yes/no/maybe
+ • /toss : Tosses A coin
+ • /bluetext : check urself :V
+ • /roll : Roll a dice
+ • /rlg : Join ears, nose, mouth and create an emoji
+ • /shout <keyword> : write anything you want to give loud shout
+ • /send <text> : sends the text you given to the group by Mizuki
+ • /weebify <text> : returns a weebified text
+ • /sanitize : always use this before `/pat` or any contact
+ • /pat : pats a user, or get patted
+ • /truth : for random truth
+ • /dare : for random dare
 """
 
 SANITIZE_HANDLER = DisableAbleCommandHandler("sanitize", sanitize)
