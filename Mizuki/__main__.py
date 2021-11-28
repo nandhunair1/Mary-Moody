@@ -95,9 +95,9 @@ Hey there! My name is *{}*.
     "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !\n",
 )
 
-SAITAMA_IMG = "https://telegra.ph/file/2b930e832af98aaec9a98.jpg"
+SAITAMA_IMG = "https://te.legra.ph/file/c3dce12116a0a8af80c93.jpg"
 
-DONATE_STRING = """Heya, glad to hear you want to donate for developer. This bot runs on heroku so bot slow down some times and developer cannot add more modules due to heroku can't run them.\n\nBetter if my developer recieved a VPS to run the bot. Contact him and help him to continue this.\n\nDeveloper: [@MrC_VENOM](t.me/MrC_VENOM)"""
+DONATE_STRING = """Heya, glad to hear you want to donate for developer. This bot runs on heroku so bot slow down some times and developer cannot add more modules due to heroku can't run them.\n\nBetter if my developer recieved a VPS to run the bot. Contact him and help him to continue this.\n\nDeveloper: [MrC_VENOM](t.me/MrC_VENOM)"""
 
 IMPORTED = {}
 MIGRATEABLE = []
