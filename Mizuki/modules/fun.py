@@ -314,7 +314,9 @@ __help__ = """
  • /pat : pats a user, or get patted
  • /truth : for random truth
  • /dare : for random dare
-"""
+
+
+© @MrCVENOMbot 😎"""
 
 SANITIZE_HANDLER = DisableAbleCommandHandler("sanitize", sanitize)
 RUNS_HANDLER = DisableAbleCommandHandler("runs", runs)
