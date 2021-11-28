@@ -63,7 +63,7 @@ async def download_video(v_url):
         song = False
         video = True
     try:
-        await lmao.edit("Fetching data, please wait [😉](https://te.legra.ph/file/5349a29197507604c7354.jpg)")
+        await lmao.edit("Fetching data, please wait 😉....")
         with YoutubeDL(opts) as ytdl:
             ytdl_data = ytdl.extract_info(url)
     except DownloadError as DE:
