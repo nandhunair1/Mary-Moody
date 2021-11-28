@@ -572,12 +572,12 @@ You're in the right place!
 The locks module allows you to lock away some common items in the \
 telegram world; the bot will automatically delete them!
 
- • `/locktypes`*:* Lists all possible locktypes
+ • /locktypes : Lists all possible locktypes
  
 *Admins only:*
- • `/lock <type>`*:* Lock items of a certain type (not available in private)
- • `/unlock <type>`*:* Unlock items of a certain type (not available in private)
- • `/locks`*:* The current list of locks in this chat.
+ • /lock <type> : Lock items of a certain type (not available in private)
+ • /unlock <type> : Unlock items of a certain type (not available in private)
+ • /locks : The current list of locks in this chat.
  
 Locks can be used to restrict a group's users.
 eg:
@@ -588,7 +588,9 @@ Locking bots will stop non-admins from adding bots to the chat.
 *Note:*
  • Unlocking permission *info* will allow members (non-admins) to change the group information, such as the description or the group name
  • Unlocking permission *pin* will allow members (non-admins) to pinned a message in a group
-"""
+
+
+© @MrCVENOMbot 😎"""
 
 __mod_name__ = "Locks 🔒"
 
