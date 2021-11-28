@@ -222,7 +222,7 @@ def start(update: Update, context: CallbackContext):
                         ],
                         [
                             InlineKeyboardButton(
-                                text="👥 Group",
+                                text="👥 Support Group",
                                 url=f"https://t.me/tvseriezzz",
                             ),
                             InlineKeyboardButton(
