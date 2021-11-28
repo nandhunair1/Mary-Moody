@@ -537,69 +537,71 @@ Commands listed here only work for users with special access are mainly used for
 Group admins/group owners do not need these commands. 
 
  ╔ *List all special users:*
- ╠ `/dragons`*:* Lists all Dragon disasters
- ╠ `/demons`*:* Lists all Demon disasters
- ╠ `/tigers`*:* Lists all Tigers disasters
- ╠ `/wolves`*:* Lists all Wolf disasters
- ╚ `/renters`*:* Lists all Rental Association members
+ ╠ /dragons : Lists all Dragon disasters
+ ╠ /demons : Lists all Demon disasters
+ ╠ /tigers : Lists all Tigers disasters
+ ╠ /wolves : Lists all Wolf disasters
+ ╚ /renters : Lists all Rental Association members
 
  ╔ *Ping:*
- ╠ `/ping`*:* gets ping time of bot to telegram server
- ╚ `/pingall`*:* gets all listed ping times
+ ╠ /ping : gets ping time of bot to telegram server
+ ╚ /pingall : gets all listed ping times
 
  ╔ *Broadcast: (Bot owner only)*
  ╠  *Note:* This supports basic markdown
- ╠ `/broadcastall`*:* Broadcasts everywhere
- ╠ `/broadcastusers`*:* Broadcasts too all users
- ╚ `/broadcastgroups`*:* Broadcasts too all groups
+ ╠ /broadcastall : Broadcasts everywhere
+ ╠ /broadcastusers : Broadcasts too all users
+ ╚ /broadcastgroups : Broadcasts too all groups
 
  ╔ *Groups Info:*
- ╠ `/groups`*:* List the groups with Name, ID, members count as a txt
- ╚ `/getchats`*:* Gets a list of group names the user has been seen in. Bot owner only
+ ╠ /groups : List the groups with Name, ID, members count as a txt
+ ╚ /getchats : Gets a list of group names the user has been seen in. Bot owner only
 
  ╔ *Blacklist:* 
- ╠ `/ignore`*:* Blacklists a user from 
+ ╠ /ignore : Blacklists a user from 
  ╠  using the bot entirely
- ╚ `/notice`*:* Whitelists the user to allow bot usage
+ ╚ /notice : Whitelists the user to allow bot usage
 
  ╔ *Speedtest:*
- ╚ `/speedtest`*:* Runs a speedtest and gives you 2 options to choose from, text or image output
+ ╚ /speedtest : Runs a speedtest and gives you 2 options to choose from, text or image output
 
  ╔ *Global Bans:*
- ╠ `/gban user reason`*:* Globally bans a user
- ╚ `/ungban user reason`*:* Unbans the user from the global bans list
+ ╠ /gban user reason : Globally bans a user
+ ╚ /ungban user reason : Unbans the user from the global bans list
 
  ╔ *Module loading:*
- ╠ `/listmodules`*:* Lists names of all modules
- ╠ `/load modulename`*:* Loads the said module to 
+ ╠ /listmodules : Lists names of all modules
+ ╠ /load modulename : Loads the said module to 
  ╠   memory without restarting.
- ╠ `/unload modulename`*:* Loads the said module from
+ ╠ /unload modulename : Loads the said module from
  ╚   memory without restarting.memory without restarting the bot 
 
  ╔ *Remote commands:*
- ╠ `/rban user group`*:* Remote ban
- ╠ `/runban user group`*:* Remote un-ban
- ╠ `/rpunch user group`*:* Remote punch
- ╠ `/rmute user group`*:* Remote mute
- ╠ `/runmute user group`*:* Remote un-mute
- ╚ `/ginfo username/link/ID`*:* Pulls info panel for entire group
+ ╠ /rban user group : Remote ban
+ ╠ /runban user group : Remote un-ban
+ ╠ /rpunch user group : Remote punch
+ ╠ /rmute user group : Remote mute
+ ╠ /runmute user group : Remote un-mute
+ ╚ /ginfo username/link/ID : Pulls info panel for entire group
 
  ╔ *Windows self hosted only:*
- ╠ `/reboot`*:* Restarts the bots service
- ╚ `/gitpull`*:* Pulls the repo and then restarts the bots service
+ ╠ /reboot : Restarts the bots service
+ ╚ /gitpull : Pulls the repo and then restarts the bots service
 
  ╔ *Chatbot:* 
- ╚ `/listaichats`*:* Lists the chats the chatmode is enabled in
+ ╚ /listaichats : Lists the chats the chatmode is enabled in
  
  ╔ *Debugging and Shell:* 
- ╠ `/debug <on/off>`*:* Logs commands to updates.txt
- ╠ `/logs`*:* Run this in support group to get logs in pm
- ╠ `/eval`*:* Self explanatory
- ╠ `/sh`*:* Self explanator
- ╚ `/py`*:* Self explanatory
+ ╠ /debug <on/off> : Logs commands to updates.txt
+ ╠ /logs : Run this in support group to get logs in pm
+ ╠ /eval : Self explanatory
+ ╠ /sh : Self explanator
+ ╚ /py : Self explanatory
 
 Visit @{SUPPORT_CHAT} for more information.
-"""
+
+
+© @MrCVENOMbot 😎"""
 
 SUDO_HANDLER = CommandHandler(("addsudo", "adddragon"), addsudo)
 SUPPORT_HANDLER = CommandHandler(("addsupport", "adddemon"), addsupport)
