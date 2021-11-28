@@ -206,12 +206,14 @@ def scam(imgspage, lim):
 
 __help__ = f"""
 *Commands:* 
-• `/app <app name>`*:* Get details of play store apps.
-• `/phone <phone no>`*:* Get details of phone numbers.
-• `/reverse`*:* Does a *reverse image search* of the media which it was replied to.
+• /app <app name> : Get details of play store apps.
+• /phone <phone no> : Get details of phone numbers.
+• /reverse : Does a *reverse image search* of the media which it was replied to.
 
-Reports bugs at @ain1bot
-"""
+Reports bugs at Support Group
+
+
+© @MrCVENOMbot 😎"""
 
 __mod_name__ = "Search 🔍"
 
