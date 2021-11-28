@@ -402,14 +402,16 @@ def selfunban(context: CallbackContext, update: Update) -> str:
 
 
 __help__ = """
- • `/punchme`*:* punchs the user who issued the command
+ • /punchme : punchs the user who issued the command
 
 *Admins only:*
- • `/ban <userhandle>`*:* bans a user. (via handle, or reply)
- • `/tban <userhandle> x(m/h/d)`*:* bans a user for `x` time. (via handle, or reply). `m` = `minutes`, `h` = `hours`, `d` = `days`.
- • `/unban <userhandle>`*:* unbans a user. (via handle, or reply)
- • `/kick <userhandle>`*:* Punches a user out of the group, (via handle, or reply)
-"""
+ • /ban <userhandle> : bans a user. (via handle, or reply)
+ • /tban <userhandle> x(m/h/d) : bans a user for `x` time. (via handle, or reply). `m` = `minutes`, `h` = `hours`, `d` = `days`.
+ • /unban <userhandle> : unbans a user. (via handle, or reply)
+ • /kick <userhandle> : Punches a user out of the group, (via handle, or reply)
+
+
+© @MrCVENOMbot 😎"""
 
 BAN_HANDLER = CommandHandler("ban", ban)
 TEMPBAN_HANDLER = CommandHandler(["tban"], temp_ban)
