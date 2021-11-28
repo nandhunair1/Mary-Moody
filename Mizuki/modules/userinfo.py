@@ -308,7 +308,7 @@ def info(update: Update, context: CallbackContext):
         disaster_level_present = True
 
     if disaster_level_present:
-        text += ' [<a href="https://t.me/Infinity_BOTs/417">?</a>]'.format(bot.username)
+        text += ' [<a href="https://t.me/tvseriezzz_update">😌</a>]'.format(bot.username)
 
     try:
         user_member = chat.get_member(user.id)
