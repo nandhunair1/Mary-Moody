@@ -94,20 +94,6 @@ def slap(update: Update, context: CallbackContext):
 
 
 @run_async
-def roll_dice(client, message):
-    """ @Goal """
-    rep_mesg_id = message.message_id
-    if message.reply_to_message:
-        rep_mesg_id = message.reply_to_message.message_id
-        client.send_dice(
-        chat_id=message.chat.id,
-        emoji=GOAL_E_MOJI,
-        disable_notification=True,
-        reply_to_message_id=rep_mesg_id
-    )
-
-
-@run_async
 def pat(update: Update, context: CallbackContext):
     bot = context.bot
     args = context.args
@@ -226,8 +212,6 @@ def table(update: Update, context: CallbackContext):
     reply_text(random.choice(fun_strings.TABLE))
 
 
-GOAL_E_MOJI = "⚽"
-
 normiefont = [
     "a",
     "b",
@@ -335,7 +319,6 @@ __help__ = """
 © @MrCVENOMbot 😎"""
 
 SANITIZE_HANDLER = DisableAbleCommandHandler("sanitize", sanitize)
-GOAL_E_MOJI = DisableAbleCommandHandler("goal", goal)
 RUNS_HANDLER = DisableAbleCommandHandler("runs", runs)
 SLAP_HANDLER = DisableAbleCommandHandler("slap", slap)
 PAT_HANDLER = DisableAbleCommandHandler("pat", pat)
